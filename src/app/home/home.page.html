@@ -1,0 +1,46 @@
+<ion-header [translucent]="true">
+  <ion-toolbar color="primary">
+    <ion-title> IoT Gas App </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large" style="color: black">IoT Gas App</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <app-card
+    [header]="'Tank Content'"
+    stateTitle="Tank State"
+    valueTitle="Tank Content"
+    state="{{tankState}}"
+    [value]="tankValue + ' kg'"
+    [class]="tankClass"
+  >
+  </app-card>
+  <app-card
+    [header]="'Gas Level'"
+    stateTitle="Gas State"
+    valueTitle="Gas Value"
+    state="{{gasState}}"
+    [value]="gasValue + ' %'"
+    [class]="gasClass"
+  >
+  </app-card>
+  <ion-text>Connect to IP Camera</ion-text>
+  <ion-item>
+    <ion-label position="floating">Camera IP Address</ion-label>
+    <ion-input
+      [(ngModel)]="ipAddress"
+      laceholder="Enter Camera IP Address"
+    ></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label position="floating">Camera Port</ion-label>
+    <ion-input [(ngModel)]="port" placeholder="Enter Camera Port"></ion-input>
+  </ion-item>
+  <ion-button (click)="connectToCamera()" expand="block"
+    >Connect to Camera</ion-button
+  >
+</ion-content>
